@@ -10,7 +10,7 @@ public class Container
     public string Type { set; get; }
     protected static int SerialNumber = 0;
 
-    public Container(double cargoWeight, int height, double containerWeight, int depth, double capacity, string type)
+    public Container(double cargoWeight, int height, double containerWeight, int depth, double capacity, string type = "")
     {
         CargoWeight = cargoWeight;
         Height = height;
