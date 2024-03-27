@@ -38,18 +38,26 @@ public class Container
         Console.WriteLine($"Conatiner: {GetSerialCode()} - unloaded");
     }
     
-    public void Load(double cargo)
+    public void Load(Cargo cargo)
     {
-        if (cargo <= Capacity)
+        if (IsCapacityOk(cargo))
         {
-            CargoWeight += cargo;
+            CargoWeight += cargo.Weight;
+        }
+
+        Console.WriteLine($"Conatiner: {GetSerialCode()} - loaded");
+    }
+
+    public bool IsCapacityOk(Cargo cargo)
+    {
+        if (cargo.Weight <= Capacity)
+        {
+            return true;
         }
         else
         {
             throw new OverfillException($"Your cargo is too heavy for container {GetSerialCode()} - loading failed");
         }
-
-        Console.WriteLine($"Conatiner: {GetSerialCode()} - loaded");
     }
     
 }
